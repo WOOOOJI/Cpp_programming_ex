@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
+
+
 int main() {
     srand(time(0)); // 현재 시간을 시드값으로 사용하여 랜덤 함수 초기화
 
