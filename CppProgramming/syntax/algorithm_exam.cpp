@@ -1,13 +1,11 @@
-#include <algorithm>
+
+  #include <algorithm>
 #include <iostream>
 #include <map>
 #include <string>
 #include <vector>
 
-int main(int argc, char const *argv[])
-{
-
-
+std::vector<int> solution() {
   std::vector<std::string> keymap;
   keymap.push_back("ABACD");
   keymap.push_back("BCEFD");
@@ -16,47 +14,41 @@ int main(int argc, char const *argv[])
   targets.push_back("AABB");
 
   std::vector<int> answer;
-
   std::map<char, int> m;
 
-  for(int i = 0; i < keymap.size(); i++){
-    for(int j = 0; j < keymap[i].size(); j++){
-      char c = keymap[i][j];
-      std::cout << c << std::endl;
-      int value;
-
-      try{
-        value = m.at(c);
-        m[c] = std::min(value, j+1);
-        std::cout << value << std::endl;
-      }catch(const std::exception& e){
-        value = j+1;
-        m.insert(std::pair<char, int>(c, value));
+  for (const auto& key : keymap) {
+    int idx = 1;
+    for (const auto& c : key) {
+      auto iter = m.find(c);
+      if (iter != m.end()) {
+        iter->second = std::min(iter->second, idx++);
+      } else {
+        m.insert(std::make_pair(c, idx++));
       }
-      
-      
     }
   }
 
-  for(int i = 0; i < targets.size(); i++){
+  for (const auto& target : targets) {
     int sum = 0;
-    for(int j = 0; j < targets[i].size(); j++){
-      char c = targets[i][j];
-      sum += m[c];
-
-      if(m[c] == 0){
+    for (const auto& c : target) {
+      auto iter = m.find(c);
+      if (iter == m.end()) {
         sum = 0;
         break;
       }
+      sum += iter->second;
     }
-    answer.push_back(sum);
+    answer.push_back(sum == 0 ? -1 : sum);
   }
 
-    //   for (const auto& [key, value] : m) {
-    //     std::cout << "key: " << key << ", value: " << value << std::endl;
-    // }
+  return answer;
+}
 
-  
+int main() {
+  auto answer = solution();
+  for (const auto& a : answer) {
+    std::cout << a << std::endl;
+  }
 
   return 0;
 }
