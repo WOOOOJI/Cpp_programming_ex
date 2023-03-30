@@ -34,7 +34,14 @@ int main(int argc, char const *argv[])
 
 
   // 문자형 - char
+  // char는 1바이트 크기의 문자형이다.
+  // 문자형은 문자를 저장하는 자료형이다.
+  // 문자형은 ''로 감싸서 저장한다.
+  // 문자형은 아스키 코드로 저장된다.
   char h = 'a';
+
+
+  
   // 논리형 - bool
   bool i = true;
 
@@ -44,8 +51,8 @@ int main(int argc, char const *argv[])
 
   // 문자열 - string
   // string은 C++에서 문자열을 저장하는 자료형이다.
+  // string 사용시 라이브러리를 사용해야한다. #include <string>
   // string은 std::string으로 선언해야 한다.
-
   std::string str = "Hello World!";
 
 
