@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 int main(int argc, char const *argv[])
 {
@@ -11,8 +12,13 @@ int main(int argc, char const *argv[])
 
   // int는 4바이트 크기의 정수형이다.
   int a = 10;
+  int* b = &a;
+
+  *b = 40;
+
+  std::cout << a << std::endl;
   // short는 2바이트 크기의 정수형이다.
-  short b = 20;
+  
   // long은 4바이트 크기의 정수형이다.
   long c = 30;
   // long long은 8바이트 크기의 정수형이다.

@@ -16,6 +16,8 @@ std::vector<int> solution() {
   std::vector<int> answer;
   std::map<char, int> m;
 
+  
+
   for (const auto& key : keymap) {
     int idx = 1;
     for (const auto& c : key) {
@@ -23,7 +25,7 @@ std::vector<int> solution() {
       if (iter != m.end()) {
         iter->second = std::min(iter->second, idx++);
       } else {
-        m.insert(std::make_pair(c, idx++));
+        m.emplace(c, idx++);
       }
     }
   }
