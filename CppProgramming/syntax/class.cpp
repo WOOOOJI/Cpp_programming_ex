@@ -8,8 +8,6 @@ using namespace std;
 class MyClass{
 
     // 접근제한자 (public, private, protected)
-
-
     // private: 클래스 내부에서만 접근 가능
     private:
         int a;

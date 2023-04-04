@@ -1,4 +1,4 @@
-
+#include <map>
 #include <iostream>
 
 using namespace std;
@@ -37,7 +37,7 @@ public:
   // 상속받은 클래스의 생성자를 호출하기 위해서는
   // 파생 클래스의 생성자에서 기초 클래스의 생성자를 호출해야 한다.
   B(int a, int b, int c, int d, int e, int f) : A(a, b, c){
-    this->d = d;
+    this->a = d;
     this->e = e;
     this->f = f;
   }
@@ -57,9 +57,7 @@ public:
 int main(){
 
   B b(1, 2, 3, 4, 5, 6);
-
   
-
   // 그래서 출력을 해보면 기초 클래스의 멤버 변수들도 출력이 된다.
   b.print();
   return 0;
